@@ -13,7 +13,19 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "5.15.15",
+    "@mui/lab": "^5.0.0-alpha.170",
+    "@mui/material": "5.15.15",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@mui/styles": "5.15.15",
+    "@mui/system": "5.15.15",
+    "@mui/utils": "5.15.14",
+    "@mui/x-data-grid": "^6.4.0",
+    "@mui/x-data-grid-generator": "^6.4.0",
+    "@mui/x-date-pickers": "^5.0.9"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.7.0",
