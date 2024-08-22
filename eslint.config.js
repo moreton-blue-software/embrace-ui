@@ -23,6 +23,7 @@ export default tseslint.config(
       },
     },
     plugins: {
+      react,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
     },
@@ -35,6 +36,7 @@ export default tseslint.config(
       "@typescript-eslint/consistent-type-definitions": ["off"],
       "@typescript-eslint/no-explicit-any": ["warn"],
       "@typescript-eslint/array-type": ["warn", { default: "generic" }],
+      "@typescript-eslint/no-unsafe-assignment": ["warn"],
     },
   }
 );
