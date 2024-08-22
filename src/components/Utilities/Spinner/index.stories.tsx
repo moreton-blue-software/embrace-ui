@@ -4,6 +4,7 @@ import Spinner from ".";
 
 export default {
   title: "Components/Utilities/Spinner",
+  parameters: { layout: "centered" },
   component: Spinner,
   tags: ["autodocs"],
 } satisfies Meta<typeof Spinner>;
