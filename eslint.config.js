@@ -35,7 +35,7 @@ export default tseslint.config(
       ],
       "@typescript-eslint/consistent-type-definitions": ["off"],
       "@typescript-eslint/no-explicit-any": ["warn"],
-      "@typescript-eslint/array-type": ["warn", { default: "generic" }],
+      "@typescript-eslint/array-type": ["off", { default: "generic" }],
       "@typescript-eslint/no-unsafe-assignment": ["warn"],
     },
   }
