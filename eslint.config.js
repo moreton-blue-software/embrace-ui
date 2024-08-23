@@ -37,6 +37,7 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": ["warn"],
       "@typescript-eslint/array-type": ["off", { default: "generic" }],
       "@typescript-eslint/no-unsafe-assignment": ["warn"],
+      "@typescript-eslint/prefer-nullish-coalescing": ["off"],
     },
   }
 );
