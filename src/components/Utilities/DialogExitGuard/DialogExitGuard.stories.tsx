@@ -2,9 +2,6 @@ import { Meta, StoryObj } from "@storybook/react";
 
 import DialogExitGuard from "./DialogExitGuard";
 
-// Please refer here for component groups: (ex: { title: 'GROUP_NAME_HERE/MyComponent' })
-// https://github.com/moreton-blue-software/embrace-v2/issues/3713#issuecomment-1744071818
-
 export default {
   title: "Components/Utilities/DialogExitGuard",
   component: DialogExitGuard,
