@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Title, Story, Source } from "@storybook/blocks";
 
 import Promise from "bluebird";
 import { createUiStory } from "../utils/stories";
@@ -7,7 +8,6 @@ import { Box, Autocomplete } from "@mui/material";
 
 const meta: Meta = {
   title: "Hooks/useAutocompleteSearch",
-  parameters: { layout: "centered" },
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -16,6 +16,276 @@ const meta: Meta = {
       </Box>
     ),
   ],
+  parameters: {
+    layout: "centered",
+    docs: {
+      page: () => (
+        <>
+          <Title>Basic Search</Title>
+          <Story of={Basic_Search} />
+          <Source
+            of={Basic_Search}
+            code={`
+            // fetch items api
+    const fetchList = async () => {
+      await Promise.delay(2000);
+      return [
+        {
+          id: "001",
+          name: "test",
+        },
+        {
+          id: "002",
+          name: "test2",
+        },
+      ];
+    };
+    // search hook
+    const autoCompleteProps = useAutocompleteSearch({
+      id: null,
+      queryKey: ["Test_Basic_Search"],
+      queryFn: async () => {
+        return { list: await fetchList() };
+      },
+      getOptionLabel(item) {
+        return item.name;
+      },
+    });
+
+    return <Autocomplete {...autoCompleteProps} sx={{ width: 300 }} />;
+            `}
+          />
+
+          <Title>With Initial Value</Title>
+          <Story of={With_Initial_Value} />
+          <Source
+            of={With_Initial_Value}
+            code={`
+            // fetch items api
+    const fetchList = async () => {
+      await Promise.delay(2000);
+      return [
+        {
+          id: "001",
+          name: "test",
+        },
+        {
+          id: "002",
+          name: "test2",
+        },
+      ];
+    };
+    // search hook
+    const autoCompleteProps = useAutocompleteSearch({
+      id: "001",
+      queryKey: ["Test_With_Initial_Value"],
+      queryFn: async () => {
+        return { list: await fetchList() };
+      },
+      getOptionLabel(item) {
+        return item.name;
+      },
+    });
+
+    return <Autocomplete {...autoCompleteProps} sx={{ width: 300 }} />;
+            `}
+          />
+
+          <Title>Fetch Record ID</Title>
+          <Story of={Fetch_Record_Id} />
+          <Source
+            of={Fetch_Record_Id}
+            code={`
+            // fetch items api
+    const fetchList = async () => {
+      await Promise.delay(1000);
+      return [
+        {
+          id: "001",
+          name: "test",
+        },
+        {
+          id: "002",
+          name: "test2",
+        },
+      ];
+    };
+    // fetch item by id api
+    const fetchById = async (id: string | null) => {
+      if (!id) return null;
+      await Promise.delay(1000);
+      return {
+        id,
+        name: 'data-' + id,
+      };
+    };
+    // search hook
+    const autoCompleteProps = useAutocompleteSearch({
+      id: args.id as string,
+      queryKey: ["Test_With_Initial_Value"],
+      queryFn: async ({ id }) => {
+        return { list: await fetchList(), idResult: await fetchById(id) };
+      },
+      getOptionLabel(item) {
+        return item.name;
+      },
+    });
+
+    return <Autocomplete {...autoCompleteProps} sx={{ width: 300 }} />;
+            `}
+          />
+
+          <Title>Search Record Text</Title>
+          <Story of={Search_Record_Text} />
+          <Source
+            of={Search_Record_Text}
+            code={`
+            // fetch items api
+    const fetchList = async () => {
+      await Promise.delay(1000);
+      return [
+        {
+          id: "001",
+          name: "test",
+        },
+        {
+          id: "002",
+          name: "test2",
+        },
+      ];
+    };
+    // fetch item by id api
+    const searchByKeyword = async (kw: string | null) => {
+      if (!kw) return null;
+      await Promise.delay(1000);
+      return [
+        {
+          id: 's-' + kw + '-01',
+          name: 'keyword-' + kw + '-01',
+        },
+        {
+          id: 's-' + kw + '-02',
+          name: 'keyword-' + kw + '-02',
+        },
+      ];
+    };
+    // search hook
+    const autoCompleteProps = useAutocompleteSearch({
+      id: args.id as string,
+      queryKey: ["Test_Search_Record_Text"],
+      queryFn: async ({ searchText }) => {
+        return {
+          list: await fetchList(),
+          searchResults: await searchByKeyword(searchText),
+        };
+      },
+      getOptionLabel(item) {
+        return item.name;
+      },
+    });
+
+    return <Autocomplete {...autoCompleteProps} sx={{ width: 300 }} />;
+            `}
+          />
+
+          <Title>Search Record with ID</Title>
+          <Story of={Search_Record_With_Id} />
+          <Source
+            of={Search_Record_With_Id}
+            code={`
+            // fetch items api
+    const fetchList = async () => {
+      await Promise.delay(1000);
+      return [
+        {
+          id: "001",
+          name: "test",
+        },
+        {
+          id: "002",
+          name: "test2",
+        },
+      ];
+    };
+    // fetch item by id api
+    const searchByKeyword = async (kw: string | null) => {
+      if (!kw) return null;
+      await Promise.delay(1000);
+      return [
+        {
+          id: 's-' + kw + '-01',
+          name: 'keyword-' + kw + '-01',
+        },
+        {
+          id: 's-' + kw + '-02',
+          name: 'keyword-' + kw + '-02',
+        },
+      ];
+    };
+    // search hook
+    const autoCompleteProps = useAutocompleteSearch({
+      id: '001',
+      queryKey: ["Test_Search_Record_Text"],
+      queryFn: async ({ searchText }) => {
+        return {
+          list: await fetchList(),
+          searchResults: await searchByKeyword(searchText),
+        };
+      },
+      getOptionLabel(item) {
+        return item.name;
+      },
+    });
+
+    return <Autocomplete {...autoCompleteProps} sx={{ width: 300 }} />;
+            `}
+          />
+
+          <Title>Re-use List for Search Results</Title>
+          <Story of={Reuse_List_For_Search_Results} />
+          <Source
+            of={Reuse_List_For_Search_Results}
+            code={`
+            // search hook
+    const autoCompleteProps = useAutocompleteSearch({
+      id: args.id as string,
+      queryKey: ["Test_Search_Record_Text"],
+      queryFn: async ({ searchText }) => {
+        await Promise.delay(2000);
+        const list = [
+          {
+            id: "001",
+            name: "test",
+          },
+          {
+            id: "002",
+            name: "test2",
+          },
+          {
+            id: "003",
+            name: "test3",
+          },
+        ];
+
+        return {
+          list,
+          searchResults: list.filter((item) =>
+            item.name.includes(searchText || "")
+          ),
+        };
+      },
+      getOptionLabel(item) {
+        return item.name;
+      },
+    });
+
+    return <Autocomplete {...autoCompleteProps} sx={{ width: 300 }} />;
+            `}
+          />
+        </>
+      ),
+    },
+  },
 };
 
 export default meta;
