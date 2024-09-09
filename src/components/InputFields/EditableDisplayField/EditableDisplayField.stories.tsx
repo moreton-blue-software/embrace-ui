@@ -7,6 +7,7 @@ import { Box, TextField } from "@mui/material";
 
 const meta: Meta<typeof EditableDisplayField> = {
   title: "Components/Input Fields/Editable Display Field",
+  tags: ["autodocs"],
   component: EditableDisplayField,
   parameters: { layout: "centered" },
   decorators: [
