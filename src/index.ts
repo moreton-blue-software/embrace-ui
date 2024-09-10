@@ -7,6 +7,7 @@ export { default as FilterBox } from "./components/Containers/FilterBox";
 // InputFields
 export { default as Autocomplete } from "./components/InputFields/Autocomplete";
 export { default as EditableDisplayField } from "./components/InputFields/EditableDisplayField";
+export { default as FileDropZone } from "./components/InputFields/FileDropZone";
 
 // Tables
 export { default as DataListTable } from "./components/Tables/DataListTable";
