@@ -2,6 +2,7 @@
 export { default as MUIButton } from "./components/Common/MUIButton";
 
 // Containers
+export { default as FilterBox } from "./components/Containers/FilterBox";
 
 // InputFields
 export { default as Autocomplete } from "./components/InputFields/Autocomplete";
