@@ -1,5 +1,6 @@
 // Common
 export { default as MUIButton } from "./components/Common/MUIButton";
+export { default as ImgAvatar } from "./components/Common/ImgAvatar";
 
 // Containers
 export { default as FilterBox } from "./components/Containers/FilterBox";
