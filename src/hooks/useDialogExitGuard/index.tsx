@@ -2,7 +2,7 @@ import { ButtonProps, SvgIconTypeMap, DialogProps } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { useSnackbar } from "notistack";
 
-import DialogExitGuard from "../components/Utilities/DialogExitGuard";
+import DialogExitGuard from "../../components/Utilities/DialogExitGuard";
 
 type DialogExitGuardParams = {
   title?: string;

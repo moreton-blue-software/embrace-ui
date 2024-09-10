@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Title, Story, Source } from "@storybook/blocks";
 
 import Promise from "bluebird";
-import { createUiStory } from "../utils/stories";
-import useAutocompleteSearch from "./useAutocompleteSearch";
+import { createUiStory } from "../../utils/stories";
+import useAutocompleteSearch from ".";
 import { Box, Autocomplete } from "@mui/material";
 
 import * as CODE from "./useAutocompleteSearch.source";
@@ -149,7 +149,7 @@ export const Fetch_Record_Id: Story = {
       ];
     };
     // fetch item by id api
-    const fetchById = async (id: string | null) => {
+    const fetchById = async (id?: string | null) => {
       if (!id) return null;
       await Promise.delay(1000);
       return {
@@ -196,7 +196,7 @@ export const Search_Record_Text: Story = {
       ];
     };
     // fetch item by id api
-    const searchByKeyword = async (kw: string | null) => {
+    const searchByKeyword = async (kw?: string | null) => {
       if (!kw) return null;
       await Promise.delay(1000);
       return [
@@ -246,7 +246,7 @@ export const Search_Record_With_Id: Story = {
       ];
     };
     // fetch item by id api
-    const searchByKeyword = async (kw: string | null) => {
+    const searchByKeyword = async (kw?: string | null) => {
       if (!kw) return null;
       await Promise.delay(1000);
       return [

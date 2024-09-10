@@ -77,7 +77,7 @@ export const Fetch_Record_Id_Source = `
   };
 
   // fetch item by id api
-  const fetchById = async (id: string | null) => {
+  const fetchById = async (id?: string | null) => {
     if (!id) return null;
     await Promise.delay(1000);
     return {
@@ -118,7 +118,7 @@ export const Search_Record_Text_Source = `
   };
 
   // fetch item by id api
-  const searchByKeyword = async (kw: string | null) => {
+  const searchByKeyword = async (kw?: string | null) => {
     if (!kw) return null;
     await Promise.delay(1000);
     return [
@@ -167,7 +167,7 @@ export const Search_Record_With_Id_Source = `
     ];
   };
   // fetch item by id api
-  const searchByKeyword = async (kw: string | null) => {
+  const searchByKeyword = async (kw?: string | null) => {
     if (!kw) return null;
     await Promise.delay(1000);
     return [
