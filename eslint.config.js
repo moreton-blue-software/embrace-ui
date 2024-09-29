@@ -40,6 +40,7 @@ export default tseslint.config(
       "@typescript-eslint/no-unsafe-call": ["warn"],
       "@typescript-eslint/no-unsafe-member-access": ["warn"],
       "@typescript-eslint/prefer-nullish-coalescing": ["off"],
+      "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     },
   }
 );
