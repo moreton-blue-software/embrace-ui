@@ -7,7 +7,7 @@ type RouteLinkProps = {
   children: React.ReactNode;
   className?: string;
   onClick?: (
-    e:
+    _e:
       | React.MouseEvent<HTMLAnchorElement>
       | React.KeyboardEvent<HTMLAnchorElement>
   ) => void;
